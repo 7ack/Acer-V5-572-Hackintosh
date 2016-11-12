@@ -10,6 +10,7 @@
 ### up
 - 3FingerSwiperUpAction: 4
 - Mission Control
+
 #### Ps: It do not work with value 3 or 4 >>>3FingerSwiperUpAction: 1 App Switch
 
 ### down
@@ -34,6 +35,6 @@
 - 4FingerSwiperRightAction: 7
 - Right Space/Full Screen apps switch
 
-### Scrolling
+## Scrolling
 - Scrolling->2FScroll->2FContScrollingMaxDelta
 - Synaptics:15
