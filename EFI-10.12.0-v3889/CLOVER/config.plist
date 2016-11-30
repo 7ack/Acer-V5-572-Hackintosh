@@ -182,50 +182,50 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Zeroing 1983 codec </string>
+				<string>BCM94352-Airport-Extreme</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				gxnUEQ==
+				axAAAHUN
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				axAAAJCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Patching 1984 with 10ec0282 codec</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				hBnUEQ==
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				AAAAAA==
+				ggLsEA==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Second stage patch</string>
+				<string>BCM94352 5G(TX)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				AQAAdSU=
+				QYP8/3QsSA==
 				</data>
 				<key>Name</key>
-				<string>IOGraphicsFamily</string>
+				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				AQAA6yU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x0a260006 9MB cursor bytes patch</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAA=
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAkAA=
+				ZscGVVPrKw==
 				</data>
 			</dict>
 			<dict>
@@ -246,18 +246,114 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Patching 1984 with 10ec0282 codec</string>
+				<string>fcvo</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				hBnUEQ==
+				AAAAqg0A
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				AAAAqgAK
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AirPortBrcm4360 whitelist patch (board-id), 10.12.dp1, credit RehabMan</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				MdtMO33YdRI=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				Mdv/w5CQkJA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Zeroing 1983 codec </string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				gxnUEQ==
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				ggLsEA==
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>0x0a260006 9MB cursor bytes patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				BgAmCgEDAwMAAAACAAAwAQAAYAA=
+				</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				BgAmCgEDAwMAAAACAAAwAQAAkAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Second stage patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AQAAdSU=
+				</data>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>
+				AQAA6yU=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11-BT4LE-Handoff-Hotspot</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				SIX/dEdIiwc=
+				</data>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Replace</key>
+				<data>
+				Qb4PAAAA60Q=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AirPortBrcm4360</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				gflSqgAAdSk=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				gflSqgAAZpA=
 				</data>
 			</dict>
 		</array>

@@ -1146,7 +1146,7 @@
 							<key>FocalTech</key>
 							<integer>15</integer>
 							<key>Synaptics</key>
-							<integer>30</integer>
+							<integer>15</integer>
 							<key>SynapticsClickPad</key>
 							<integer>15</integer>
 						</dict>
@@ -1258,23 +1258,23 @@
 				<key>Swiping</key>
 				<dict>
 					<key>3FingerSwipeDownAction</key>
-					<integer>1</integer>
+					<integer>2</integer>
 					<key>3FingerSwipeLeftAction</key>
 					<integer>11</integer>
 					<key>3FingerSwipeRightAction</key>
 					<integer>12</integer>
 					<key>3FingerSwipeUpAction</key>
-					<integer>3</integer>
+					<integer>1</integer>
 					<key>3FingerSwipes</key>
 					<true/>
 					<key>4FingerSwipeDownAction</key>
 					<integer>9</integer>
 					<key>4FingerSwipeLeftAction</key>
-					<integer>16</integer>
+					<integer>6</integer>
 					<key>4FingerSwipeRightAction</key>
-					<integer>15</integer>
+					<integer>7</integer>
 					<key>4FingerSwipeUpAction</key>
-					<integer>2</integer>
+					<integer>10</integer>
 					<key>4FingerSwipes</key>
 					<true/>
 					<key>EdgeSwipeBottom</key>
@@ -1332,7 +1332,7 @@
 					<key>1FingerTapAction</key>
 					<integer>35</integer>
 					<key>2FingersTapAction</key>
-					<integer>22</integer>
+					<integer>21</integer>
 					<key>3FingersTapAction</key>
 					<integer>21</integer>
 					<key>4FingersTapAction</key>
