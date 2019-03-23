@@ -1,0 +1,35 @@
+
+Clover EFI installer log - Sun Mar 17 17:40:48 CST 2019
+Installer version: v2.4k r4895 EFI bootloader
+======================================================
+/dev/disk0 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *240.1 GB   disk0
+   1:                        EFI EFI                     594.5 MB   disk0s1
+   2:         Microsoft Reserved                         16.8 MB    disk0s2
+   3:       Microsoft Basic Data                         184.8 GB   disk0s3
+   4:           Windows Recovery                         978.3 MB   disk0s4
+   5:                  Apple_HFS 7ack Mac                53.0 GB    disk0s5
+   6:                 Apple_Boot Recovery HD             650.0 MB   disk0s6
+
+/dev/disk1 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *7.7 GB     disk1
+   1:                        EFI EFI                     209.7 MB   disk1s1
+   2:                  Apple_HFS Install macOS Mojave    7.4 GB     disk1s2
+
+======================================================
+Backing up EFI files
+
+Backing up /Volumes/Install macOS Mojave/EFIROOTDIR/EFI folder to /Volumes/Install macOS Mojave/EFI-Backups/r4895/2019-03-17-17h40/EFI
+======================================================
+Installing BootSectors/BootLoader
+
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /Volumes/Install macOS Mojave
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /Volumes/Install macOS Mojave
+
+Theme 'metal' (defined in config.plist) not found !
+Using default theme 'embedded'
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
