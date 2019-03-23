@@ -2,13 +2,16 @@ Acer V5-572 On Mojave
 
 ## 配置
 
-- CPU：i5-3337U @1.80GHz Ivy Bridge HM77 7 Series
+- CPU：Intel(R) Core(TM) i5-3337U CPU @ 1.80GHz Ivy Bridge HM77 7 Series
+- Cores : 2 Cores, 4 Threads @ 1796MHz Bus: 24MHz FSB: 96MHz
+- RAM : 8192Mb HibernateMode: 0
 - 显卡：HD4000 ID:0x01660009 /Nvidia GT750m
 - 以太网卡：RTL8168
 - 无线网卡：BCM94352
 - 声卡：ALC282
 - Clover version: v4895
-- Mac OS X 10.14.3
+- ProductName  : Mac OS X 10.14.3 BuildVersion: 18D109
+- Bootargs: kext-dev-mode=1 dart=0 nv_disable=1 -alcbeta 
 
 
 ## 安装
@@ -103,7 +106,8 @@ ss01 usb3
 2. [syscl/OS-X-Voodoo-PS2-Controller](https://github.com/syscl/OS-X-Voodoo-PS2-Controller)最新版本添加了[Enable native/true multitouch gestures](https://github.com/syscl/OS-X-Voodoo-PS2-Controller/pull/10)
 3. git到本地后使用命令make BITS=64自编译后安装kexts
 * syscl的版本编译错误，直接使用rehabman的1.92
-
+支持最多三指手势
+需要在键盘-快捷键中找到想要实现的功能，在修改快捷键时直接三指滑动
 
 #### 开启HIDPI
 - [one-key-hidpi](https://github.com/xzhih/one-key-hidpi/blob/master/README-zh.md)
