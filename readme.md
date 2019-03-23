@@ -117,4 +117,13 @@ ss01 usb3
 
 #### ssd trim
 * sudo trimforce enable
+
+#### 读取NTFS
+* [fstab](https://wiki.archlinux.org/index.php/Fstab_(简体中文))
+* [打开Mac OSX原生的读写NTFS功能](https://bbs.feng.com/read-htm-tid-9932031.html)
+!!!注意加载NTFS需要关闭Windows下的快速启动,否则可能会造成数据丢失
+建议使用label或者uuid加\挂载(推荐)
+1. 编辑fstab sudo nano /etc/fstab
+2. 写入 uuid=your-volume-uuid none ntfs rw,auto,nobrowse
+3. 建立快捷方式 sudo ln -s /Volumes/Windows ~/Desktop/Windows
  
