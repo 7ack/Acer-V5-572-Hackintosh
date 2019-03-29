@@ -72,8 +72,8 @@ kextcache -i /volumes/mac
 #### 亮度调节
 - [AppleBacklightFixup](https://bitbucket.org/RehabMan/applebacklightfixup/downloads/)
 1. SSDT-PNLF.aml in ACPI/patched
-2. AppleBacklightFixup.kext installed to /L/E
-
+   ~~2. AppleBacklightFixup.kext installed to /L/E~~
+[WhateverFreen.kext调节笔记本亮度](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.cn.md#%E8%B0%83%E8%8A%82%E7%AC%94%E8%AE%B0%E6%9C%AC%E4%BA%AE%E5%BA%A6) 已经包含了该驱动
 
 #### USB供电 
 
@@ -88,13 +88,16 @@ ss01 usb3
 
 
 #### 屏蔽独显
-1.明白屏蔽独显的后果,如果是多系统比如Windows下也无法使用!如果你的DSDT包含_OFF方法建议使用补丁
+如果使用了WhateverGreen.kext可以直接增加-wegnoegpu启动参数来屏蔽独显;也可以使用下面的方法从BIOS屏蔽独显.
+
+1. 明白屏蔽独显的后果,如果是多系统比如Windows下也无法使用!如果你的DSDT包含_OFF方法建议使用补丁
+
 2. 开机按 F2 进入 BIOS 界面，按下 Tab 和 Fn 组合键，接着按 Ctrl+Alt+Del 组合键重启。
 3. 在开机画面继续按 F2 进入 BIOS 界面，此时 Advanced 和 Power 两个高级选项卡开启了。
 4. 进入 Advanced 选项卡，在 Video Configuration 中将Special Features改为Disabled，将Graphic Mode由 switchable为Integrated ，最后将 PCI Express Graphic 改为 Disable 
 5. 按 F10 保存 BIOS 设置重启
-6.BIOS设置更改后在clover界面需要按F4重新生成oem DSDT
-7.查看系统信息-图形卡/显示器中没有nvidia显卡信息即屏蔽成功
+6. BIOS设置更改后在clover界面需要按F4重新生成oem DSDT
+7. 查看系统信息-图形卡/显示器中没有nvidia显卡信息即屏蔽成功
 
 #### 睡眠
 * 屏蔽独显后，睡眠可用
@@ -126,4 +129,3 @@ ss01 usb3
 1. 编辑fstab sudo nano /etc/fstab
 2. 写入 uuid=your-volume-uuid none ntfs rw,auto,nobrowse
 3. 建立快捷方式 sudo ln -s /Volumes/Windows ~/Desktop/Windows
- 
