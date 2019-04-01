@@ -9,10 +9,10 @@
 - 以太网卡：RTL8168
 - 无线网卡：BCM94352
 - 声卡：ALC282
+>
 - Clover version: v4895
 - ProductName  : Mac OS X 10.14.3 BuildVersion: 18D109
-- Bootargs: kext-dev-mode=1 dart=0 nv_disable=1 -alcbeta 
-
+- Bootargs=kext-dev-mode=1 dart=0 slide=0 nv_disable=1 -alcbeta -cdfon -igfxnohdmi igfxcflbklt=1 enable-cfl-backlight-fix
 ## 现状
 - [x] 核显开启QE/CI Metal  独显bios屏蔽睡眠 
 - [x] 声卡 
@@ -23,11 +23,12 @@
 - [x] 原生电源管理.CPU变频
 - [x] 触控板(不支持三指以上手势) .键盘/灯.亮度调节
 - [x] EDID注入,开启HIDPI
-- [ ] iCloud.iMessage.Facetime.Handoff.Universal-Clipboard.Airdrop.Continuity.Apple-watch解锁
+- [x] Continuity:iCloud.iMessage.Facetime.Handoff.Universal-Clipboard.Airdrop.Apple-watch解锁
+- [x] 偶尔蓝牙固件升级失败导致蓝牙WI-FI失效
 - [ ] HDMI (未测试)
 - [ ] 笔记本风扇转速显示
 - [ ] 开机第二阶段闪屏
-- [ ] 偶尔蓝牙固件升级失败导致蓝牙WI-FI失效
+
 
 
 
@@ -54,7 +55,7 @@
         rm -rf xxx.kext
 
         (为了避免其他驱动的不兼容,我删除了之前安装的所有驱动)
-   1. 重建缓存
+   3. 重建缓存
 
         kextcache -i /volumes/mac
 
@@ -82,6 +83,9 @@
 > 蓝牙
 1.  [BrcmPatchRAM2](https://github.com/RehabMan/OS-X-BrcmPatchRAM):can be installed either through Clover kext injection or placed in /Library/Extensions on 10.11 and later.
 2. [BrcmFirmwareRepo.kext](https://github.com/RehabMan/OS-X-BrcmPatchRAM): Install to /Library/Extensions (on 10.11 and later). This kext is much more memory efficient than  BrcmFirmwareData.kext and is the preferred configuration.BrcmFirmwareRepo.kext does not work with Clover kext injection, unless using a device specific firmware injector. 
+
+> 偶尔蓝牙固件升级失败导致蓝牙WI-FI失效
+- 见USB部分(怀疑是USB内置及电源控制的问题)
 
 
 
@@ -119,7 +123,8 @@
 2.[WhateverFreen.kext调节笔记本亮度](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.cn.md#%E8%B0%83%E8%8A%82%E7%AC%94%E8%AE%B0%E6%9C%AC%E4%BA%AE%E5%BA%A6) 已经包含了该驱动
 
 #### USB
-1.  通过hacktool查看USB信息,查找需要的端口,确定是USB2还是3,一些硬件需要改成内建以保证睡眠及唤醒的正常使用
+> 定制USBPort.kext
+1.  通过hacktool查看USB信息,查找需要的端口,确定是USB2还是3,一些硬件需要改成内建以保证睡眠及唤醒的正常使用(控制端口数量在10个之内)
 
 hp15 usb2
 
@@ -132,9 +137,8 @@ hs02 usb2
 ss01 usb3  
 
 2. 完成后导出kext安装到l/d以及ssdt文件复制到clover/acpi/patched，删除usbenjectall.kext 取消usb重命名补丁
-
-
-3. 重启后,usb供电正常,usb3 速度5g
+3. 添加FakePCIID.kext和FakePCIID_XHCIMux.kext: 使用AppleUSBEHCI而不是AppleUSBXHCI来控制USB2(也许可以解决偶尔蓝牙无法识别的问题)
+4. 重启后,usb供电正常,usb3速度5g
 
 
 #### 屏蔽独显
@@ -185,4 +189,4 @@ ss01 usb3
 ### TBD
 1. 笔记本风扇转速显示
 2. 开机第二阶段闪屏
-3. 偶尔蓝牙固件升级失败导致蓝牙失效
+3. ~~偶尔蓝牙固件升级失败导致蓝牙WI-FI失效~~
