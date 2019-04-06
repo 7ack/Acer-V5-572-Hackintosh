@@ -13,6 +13,10 @@
 - Clover version: v4895
 - ProductName  : Mac OS X 10.14.3 BuildVersion: 18D109
 - Bootargs=kext-dev-mode=1 dart=0 slide=0 nv_disable=1 -alcbeta -cdfon -igfxnohdmi igfxcflbklt=1 enable-cfl-backlight-fix
+
+- 2019-04-06: OTA update to 10.14.4 
+
+![](https://raw.githubusercontent.com/7ack/pohoto/master/img/mojave-10.14.4.png)
 ## 现状
 - [x] 核显开启QE/CI Metal  独显Bios屏蔽
 - [x] 声卡 
@@ -102,6 +106,8 @@
   *检测到Apple Watch，并尝试用Apple Watch解锁，但是菊花转了半天后出现了密码的输入框*
 - 注销iCloud后重新登录iCloud并打开使用Apple watch解锁
 
+![](https://raw.githubusercontent.com/7ack/pohoto/master/img/aw-unlock.PNG)
+
 
 
 ####  声卡
@@ -189,6 +195,8 @@ ss01 usb3
 > 有关键盘Fn快捷键的问题
 - 键盘上的Fn快捷键有一些是靠Acpi来控制的,例如Fn+<>控制亮度,需要对dsdt和ssdt打补丁实现:[Patching DSDT/SSDT for LAPTOP backlight control](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/).
 1. 判断是PS2还是ACPI控制,经测试是ACPI.使用ACPI Debug.kext加上DSDT相关补丁进行调试找出相关函数
+
+
    ![](https://raw.githubusercontent.com/7ack/pohoto/master/img/亮度调节.png)
 2. 根据上面的教程在Q8E和Q8F处打上补丁
    ‘’‘
