@@ -9,11 +9,11 @@
 - 以太网卡：RTL8168
 - 无线网卡：BCM94352
 - 声卡：ALC282
->
+------
 - Clover version: v4895
 - ProductName  : Mac OS X 10.14.3 BuildVersion: 18D109
 - Bootargs=kext-dev-mode=1 dart=0 slide=0 nv_disable=1 -alcbeta -cdfon -igfxnohdmi igfxcflbklt=1 enable-cfl-backlight-fix
-
+------
 - 2019-04-06: OTA update to 10.14.4 
 
 ![](https://raw.githubusercontent.com/7ack/pohoto/master/img/mojave-10.14.4.png)
@@ -27,7 +27,7 @@
 - [x] 原生电源管理.CPU变频
 - [x] 触控板(不支持三指以上手势)
 - [x] EDID注入,开启HIDPI
-- [x] Continuity:iCloud.iMessage.Facetime.Handoff.Universal-Clipboard.Airdrop.Apple-watch解锁
+- [x] Continuity
 - [x] 偶尔蓝牙固件升级失败导致蓝牙WI-FI失效
 - [x] Wi-Fi使用键盘Fn+F3关闭后无法再开启
 - [x] 键盘自定义DSDT补丁实现Fn+<>调节亮度
@@ -35,10 +35,11 @@
 - [ ] 笔记本风扇(无风扇传感器)
 - [ ] 开机第二阶段闪屏
 
+--------
 
+[TOC]
 
-
-
+-------
 
 ## 安装
 安装前仔细阅读[Mojave Laptop Support](https://www.tonymacx86.com/forums/mojave-laptop-support.196/)
@@ -49,7 +50,7 @@
 
 ### 安装中的问题
 
-> 安装中出现的IOConsoleUsers: time(0) 0->0, lin 0, llk 1, IOConsoleUsers: gIOScreenLockState 3, hs 0, bs 0, nov 0, sm 0x0
+> 安装中出现的`IOConsoleUsers: time(0) 0->0, lin 0, llk 1, IOConsoleUsers: gIOScreenLockState 3, hs 0, bs 0, nov 0, sm 0x0`
    - 原因是系统无法识别出你的显卡驱动，解决方法：
     
     勾选Inject Intel,将platform-id修改为0x12345678即可进入安装界面
@@ -57,18 +58,18 @@
 > 安装后无法进入系统,显示kext stall AppleApcicpu
    - 原因是fakeSmc.kext不兼容,解决方法:
    1. 重启进入RecoveryHD,打开终端,进入系统分区
-        cd /volumes/mac/system/library/Extensions或者/library/Extensions
+       ` cd /volumes/mac/system/library/Extensions或者/library/Extensions`
    2. 删除之前安装的不兼容驱动
 
-        rm -rf xxx.kext
+        `rm -rf xxx.kext`
 
         (为了避免其他驱动的不兼容,我删除了之前安装的所有驱动)
    3. 重建缓存
 
-        kextcache -i /volumes/mac
+        `kextcache -i /volumes/mac`
 
 
-### 安装完成后问题:
+### 安装完成后问题
 由于Mojave本身原因以及删除了所有驱动,遇到的问题比较多:
 1. 睡眠失效
 2. 蓝牙失效
@@ -79,17 +80,18 @@
 
 
 ### 解决问题
-[参考教程1](https://www.tonymacx86.com/threads/an-idiots-guide-to-lilu-and-its-plug-ins.260063/)
-[参考教程2](https://www.tonymacx86.com/threads/faq-read-first-laptop-frequent-questions.164990/)
+[参考教程1:an-idiots-guide-to-lilu-and-its-plug-ins](https://www.tonymacx86.com/threads/an-idiots-guide-to-lilu-and-its-plug-ins.260063/)
+[参考教程2:faq-read-first-laptop-frequent-questions](https://www.tonymacx86.com/threads/faq-read-first-laptop-frequent-questions.164990/)
 
 
 #### WiFi蓝牙
 > wifi
 
- - [Broadcom WiFi/Bluetooth [Guide]](https://www.tonymacx86.com/threads/broadcom-wifi-bluetooth-guide.242423/#post-1664577)[AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
+ - [Broadcom WiFi/Bluetooth [Guide]](https://www.tonymacx86.com/threads/broadcom-wifi-bluetooth-guide.242423/#post-1664577)
+ - [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
 
-> Wi-Fi使用键盘Fn+F2关闭后无法再开启
-- 未解决,见键盘部分.
+> Wi-Fi使用键盘Fn+F3关闭后无法再开启
+- 已解决,见键盘部分.
 
 
 > 蓝牙
@@ -114,12 +116,12 @@
 > [AppleALC](https://github.com/acidanthera/AppleALC)
 1. 注入id3,27,127均失败
 2. 添加参数开启debug模式,重启
-3. 终端输入:log show --predicate 'process == "kernel" AND (eventMessage CONTAINS "AppleALC" )' --style syslog --source
-4. 输出:(kernel) AppleALC: init @ automatically disabling on an unsupported operating system
-5. 添加-alcdbg -liludbg
-6. 输出:(kernel) AppleALC:     alc @ failed to obtain device info for analog controller (1)
+3. 终端输入:`log show --predicate 'process == "kernel" AND (eventMessage CONTAINS "AppleALC" )' --style syslog --source`
+4. 输出:`(kernel) AppleALC: init @ automatically disabling on an unsupported operating system`
+5. 添加`-alcdbg -liludbg`
+6. 输出:`(kernel) AppleALC:     alc @ failed to obtain device info for analog controller (1)`
 7. 怀疑没有加载AppleHDA
-8. 输入:kextstat | grep 'Lilu\|AppleALC\|AppleHDA'
+8. 输入:`kextstat | grep 'Lilu\|AppleALC\|AppleHDA'`
 9. clover/acpi添加 fix HPET 
 10. 重启加载成功
 
@@ -140,15 +142,14 @@
 > 定制USBPort.kext
 1.  通过hacktool查看USB信息,查找需要的端口,确定是USB2还是3,一些硬件需要改成内建以保证睡眠及唤醒的正常使用(控制端口数量在10个之内)
 
-hp15 usb2
+| 端口| 设备 |
+| --- | --- |
+| hp15 | usb2 |
+| hp21 | 摄像头内建 |
+| hp23 | 蓝牙内建 |
+| hs02 | usb2 |
+| ss01 | usb3 |
 
-hp21 摄像头内建
-
-hp23 蓝牙内建
-
-hs02 usb2
-
-ss01 usb3  
 
 2. 完成后导出kext安装到l/d以及ssdt文件复制到clover/acpi/patched，删除usbenjectall.kext 取消usb重命名补丁
 3. 添加FakePCIID.kext和FakePCIID_XHCIMux.kext: 使用AppleUSBEHCI而不是AppleUSBXHCI来控制USB2(也许可以解决偶尔蓝牙无法识别的问题)
@@ -199,7 +200,7 @@ ss01 usb3
 
    ![](https://raw.githubusercontent.com/7ack/pohoto/master/img/亮度调节.png)
 2. 根据上面的教程在Q8E和Q8F处打上补丁
-   ‘’‘
+   ```
    into method label _Q8E replace_content
 begin
 // Brightness Down\n
@@ -210,7 +211,7 @@ begin
 // Brightness Up\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)\n
 end;
-   ’‘’
+   ```
 3. 将DSDT.aml放入acpi/patched重启,在设置-键盘快捷键中设置亮度调节未Fn+<>即可(显示的是f14,f15是因为voodoo驱动的原因,即相应映射,不用在意)
 > 关于Fn+F3关闭Wi-Fi再打开,一段时间后Wi-Fi消失.
 - 猜想是该快捷键也是Acpi控制的,ec没有正确识别,导致电源管理错误,无法打开.
@@ -237,11 +238,17 @@ end;
 #### 开启HIDPI
 - [one-key-hidpi](https://github.com/xzhih/one-key-hidpi/blob/master/README-zh.md)
 
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi-zh.sh)"
+```
+
 #### Mac导致Windows时间不同步
-* sudo sh -c "$(curl -kfsSL https://raw.githubusercontent.com/hieplpvip/LocalTime-Toggle/master/fix_time_osx.sh)"
+```
+sudo sh -c "$(curl -kfsSL https://raw.githubusercontent.com/hieplpvip/LocalTime-Toggle/master/fix_time_osx.sh)"
+```
 
 #### ssd trim
-* sudo trimforce enable
+`sudo trimforce enable`
 
 #### 读取NTFS
 * [fstab](https://wiki.archlinux.org/index.php/Fstab_(简体中文))
@@ -251,6 +258,6 @@ end;
 **!!!注意加载NTFS需要关闭Windows下的快速启动,否则可能会造成数据丢失**
 
 建议使用label或者uuid挂载(推荐)
-1. 编辑fstab sudo nano /etc/fstab
-2. 写入 uuid=your-volume-uuid none ntfs rw,auto,nobrowse
-3. 建立快捷方式 sudo ln -s /Volumes/your-volume-name ~/Desktop/your-volume-name
+1. 编辑fstab `sudo nano /etc/fstab`
+2. 写入 `uuid=your-volume-uuid none ntfs rw,auto,nobrowse`
+3. 建立快捷方式 `sudo ln -s /Volumes/your-volume-name ~/Desktop/your-volume-name`
